@@ -20,21 +20,37 @@ class RouterDemoHomeState extends State<RouterDemoHomePage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           new Container(
-            margin: EdgeInsets.all(20),
-            color: Colors.orangeAccent,
-            child: new Text(
-              "push页面并接收返回值",
-              textAlign: TextAlign.center,
-            ),
+              height: 70,
+              /*设置Container内部child Widget的对齐方式*/
+              alignment: Alignment.center,
+              padding: EdgeInsets.all(15),
+              color: Color.fromARGB(255, 0, 255, 0),
+              child: new RaisedButton(
+                onPressed: () {},
+                color: Color.fromARGB(255, 255, 104, 104),
+                highlightColor: Color.fromARGB(255, 255, 0, 0),
+                child: new Text("push一个新页面并处理新页面的返回值"),
+              )),
+          new Divider(
+            height: 4,
+            color: Colors.blue[900],
           ),
           new Container(
-            margin: EdgeInsets.all(20),
-            color: Color.fromARGB(0, 1, 0, 0),
-            child: new Text(
-              'push 页面并传递参数过去',
-              textAlign: TextAlign.center,
-            ),
-          )
+              height: 70,
+              /*设置Container内部child Widget的对齐方式*/
+              alignment: Alignment.center,
+              padding: EdgeInsets.all(15),
+              color: Color.fromARGB(255, 0, 255, 0),
+              child: new RaisedButton(
+                onPressed: () {},
+                color: Color.fromARGB(255, 255, 104, 104),
+                highlightColor: Color.fromARGB(255, 255, 0, 0),
+                child: new Text("push一个新页面并向新页面传递参数"),
+              )),
+          new Divider(
+            height: 4,
+            color: Colors.blue[900],
+          ),
         ],
       ),
     );
