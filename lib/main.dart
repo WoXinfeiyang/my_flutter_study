@@ -64,6 +64,7 @@ class _MyFlutterStudyHomePageState extends State<MyFlutterStudyHomePage> {
         new Container(
             alignment: Alignment.center,
             height: 45,
+            color: Color.fromARGB(255, 255, 255, 255),
             child: new RaisedButton(
               onPressed: () {
                 print("ListViewItem被点击了!listViewItemData=" +
@@ -72,8 +73,9 @@ class _MyFlutterStudyHomePageState extends State<MyFlutterStudyHomePage> {
                   Navigator.of(context).pushNamed('router/home');
                 }
               },
-              color: Color.fromARGB(255, 255, 104, 104),
+              color: Color.fromARGB(255, 255, 255, 255),
               highlightColor: Color.fromARGB(255, 255, 0, 0),
+              elevation: 0,
               child: new Text(
                 listViewItemData['title'],
                 style: new TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
