@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './router_demo/router_demo_home_page.dart';
+import './router_demo/router_demo_second_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
       ),
       home: MyFlutterStudyHomePage(title: 'My Flutter Study'),
       routes: <String, WidgetBuilder>{
-        'router/home': (context) => new RouterDemoHomePage()
+        'router/home': (context) => new RouterDemoHomePage(),
+        'router/second': (context) => new RouterDemoSecondPage(),
       },
     );
   }

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class RouterDemoHomePage extends StatefulWidget {
+class RouterDemoSecondPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return new RouterDemoHomeState();
+    return new RouterDemoSecondState();
   }
 }
 
-class RouterDemoHomeState extends State<RouterDemoHomePage> {
+class RouterDemoSecondState extends State<RouterDemoSecondPage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -27,16 +27,11 @@ class RouterDemoHomeState extends State<RouterDemoHomePage> {
               color: Color.fromARGB(255, 0, 255, 0),
               child: new RaisedButton(
                 onPressed: () {
-                  Navigator.of(context)
-                      .pushNamed("router/second")
-                      .then((value) {
-                    print("新页面返回数据为:" + value.toString());
-                    _showDialog(context, value.toString());
-                  });
+                  Navigator.of(context).pop("来自RouterDemoSecondPage的数据!");
                 },
                 color: Color.fromARGB(255, 255, 104, 104),
                 highlightColor: Color.fromARGB(255, 255, 0, 0),
-                child: new Text("push一个新页面并处理新页面的返回值"),
+                child: new Text("pop页面并返回数据给上一个页面"),
               )),
           new Divider(
             height: 4,
@@ -61,9 +56,5 @@ class RouterDemoHomeState extends State<RouterDemoHomePage> {
         ],
       ),
     );
-  }
-
-  _showDialog(BuildContext context, String text) {
-    showDialog(context: null);
   }
 }
