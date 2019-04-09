@@ -75,7 +75,7 @@ class _MyFlutterStudyHomePageState extends State<MyFlutterStudyHomePage> {
               height: 45,
               child: new Text(
                 listViewItemData['title'],
-                style: new TextStyle(color: Colors.red),
+                style: new TextStyle(color: Color.fromARGB(255, 255, 0, 0)),
               ),
             ),
             /*添加Divider*/
