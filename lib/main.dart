@@ -60,20 +60,30 @@ class _MyFlutterStudyHomePageState extends State<MyFlutterStudyHomePage> {
   _createListViewItem(
       BuildContext context, Map<String, String> listViewItemData) {
     return new GestureDetector(
-      onTap: () {
-        print(
-            "ListViewItem被点击了!listViewItemData=" + listViewItemData.toString());
-        if (listViewItemData['type'] == 'router') {
-          Navigator.of(context).pushNamed('router/home');
-        }
-      },
-      child: new Container(
-        height: 45,
-        child: new Text(
-          listViewItemData['title'],
-          textAlign: TextAlign.center,
-        ),
-      ),
-    );
+        onTap: () {
+          print("ListViewItem被点击了!listViewItemData=" +
+              listViewItemData.toString());
+          if (listViewItemData['type'] == 'router') {
+            Navigator.of(context).pushNamed('router/home');
+          }
+        },
+        /*使用Colum作为ListView item最外层容器*/
+        child: new Column(
+          children: <Widget>[
+            new Container(
+              alignment: Alignment.center,
+              height: 45,
+              child: new Text(
+                listViewItemData['title'],
+                style: new TextStyle(color: Colors.red),
+              ),
+            ),
+            /*添加Divider*/
+            new Divider(
+              height: 2,
+              color: Colors.green,
+            )
+          ],
+        ));
   }
 }
