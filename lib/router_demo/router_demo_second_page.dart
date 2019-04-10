@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class RouterDemoSecondPage extends StatefulWidget {
+  String title;
+
+  RouterDemoSecondPage({this.title});
+
   @override
   State<StatefulWidget> createState() {
     return new RouterDemoSecondState();
@@ -44,10 +48,13 @@ class RouterDemoSecondState extends State<RouterDemoSecondPage> {
               padding: EdgeInsets.all(15),
               color: Color.fromARGB(255, 0, 255, 0),
               child: new RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
                 color: Color.fromARGB(255, 255, 104, 104),
                 highlightColor: Color.fromARGB(255, 255, 0, 0),
-                child: new Text("push一个新页面并向新页面传递参数"),
+                child: new Text(
+                    "上个页面传递数据为:${widget.title != null ? widget.title : ''}"),
               )),
           new Divider(
             height: 4,
