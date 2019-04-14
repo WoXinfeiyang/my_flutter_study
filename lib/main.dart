@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './platform_channel/platform_channel_home_page.dart';
 
 import './router_demo/router_demo_home_page.dart';
 import './router_demo/router_demo_second_page.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         'router/home': (context) => new RouterDemoHomePage(),
         'router/second': (context) => new RouterDemoSecondPage(),
+        'router/platform_channel_home_page':(context)=>new PlatformChannelHomePage(),
       },
     );
   }
@@ -38,7 +40,8 @@ class _MyFlutterStudyHomePageState extends State<MyFlutterStudyHomePage> {
   @override
   void initState() {
     super.initState();
-    list.add({'title': '路由导航', 'type': 'router'});
+    list.add({'title': '路由导航', 'router': 'router/home'});
+    list.add({'title':'Flutter与Android原生代码通信','router':'router/platform_channel_home_page'});
   }
 
   @override
@@ -71,8 +74,8 @@ class _MyFlutterStudyHomePageState extends State<MyFlutterStudyHomePage> {
               onPressed: () {
                 print("ListViewItem被点击了!listViewItemData=" +
                     listViewItemData.toString());
-                if (listViewItemData['type'] == 'router') {
-                  Navigator.of(context).pushNamed('router/home');
+                if (listViewItemData['router'] !=null) {
+                  Navigator.of(context).pushNamed(listViewItemData['router']);
                 }
               },
               color: Color.fromARGB(255, 255, 255, 255),
