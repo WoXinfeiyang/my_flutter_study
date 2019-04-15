@@ -10,6 +10,6 @@ public class MainActivity extends FlutterActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     GeneratedPluginRegistrant.registerWith(this);
-    mFlutterMethodChannel=FlutterMethodChannel.create(getFlutterView());
+    mFlutterMethodChannel=FlutterMethodChannel.create(this,getFlutterView());
   }
 }
