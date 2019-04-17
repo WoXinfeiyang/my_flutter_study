@@ -1,39 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class PlatformChannelHomePage extends StatefulWidget{
+class PlatformChannelHomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-
     return new PlatformaChannelHomePageState();
   }
 }
 
-class PlatformaChannelHomePageState extends State<PlatformChannelHomePage>{
+class PlatformaChannelHomePageState extends State<PlatformChannelHomePage> {
+  final String _TAG = "PlatformaChannelHomePageState";
+  String _volumeText = "从原生代码中返回的音量值:null";
 
-  final String _TAG="PlatformaChannelHomePageState";
-  String _volumeText="从原生代码中返回的音量值:null";
+  static const methodChannel = const MethodChannel("com.fxj.myflutterstudy");
 
-  static const methodChannel=const MethodChannel("com.fxj.myflutterstudy");
-
-  Future<Null> _getVolume() async{
+  Future<Null> _getVolume() async {
     String _result;
-    try{
-      _result=await methodChannel.invokeMethod("getVolume");
-      print(_TAG+"**_getVolume _result=${_result}");
-    }on PlatformException catch(e){
-      print(_TAG+"**Flutter 调用Andorid原生代码Exception,Exception Message=${e.message}");
-      _result=e.message;
+    try {
+      _result = await methodChannel.invokeMethod("getVolume");
+      print(_TAG + "**_getVolume _result=${_result}");
+    } on PlatformException catch (e) {
+      print(_TAG +
+          "**Flutter 调用Andorid原生代码Exception,Exception Message=${e.message}");
+      _result = e.message;
     }
 
     setState(() {
-      _volumeText="从原生代码中返回的音量值:"+_result;
+      _volumeText = "从原生代码中返回的音量值:" + _result;
     });
   }
 
   @override
   void initState() {
     super.initState();
+    methodChannel.setMethodCallHandler(handlerCallFromAndroid);
+  }
+
+  Future<dynamic> handlerCallFromAndroid(MethodCall call) async {
+    switch (call.method) {
+      case "getFlutterInfo":
+        try {
+          return "MethodChannel 已经处理了来自Android原生的调用";
+        } on PlatformException catch (e) {
+          return e.message;
+        }
+        break;
+    }
   }
 
   @override
@@ -41,8 +53,10 @@ class PlatformaChannelHomePageState extends State<PlatformChannelHomePage>{
     // TODO: implement build
     return new MaterialApp(
       title: "PlatformaChannelHomePage",
-      home:new Scaffold(
-        appBar: new AppBar(title: new Text("Flutter与Android原生代码通信"),),
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text("Flutter与Android原生代码通信"),
+        ),
         body: new Column(
           children: <Widget>[
             new Container(
@@ -64,10 +78,21 @@ class PlatformaChannelHomePageState extends State<PlatformChannelHomePage>{
               height: 4,
               color: Colors.blue[900],
             ),
+            new Container(
+              height: 70,
+              /*设置Container内部child Widget的对齐方式*/
+              alignment: Alignment.center,
+              padding: EdgeInsets.all(15),
+              color: Color.fromARGB(255, 0, 255, 0),
+              child: new Text("点击音量Down键,触发Native调用Flutter方法"),
+            ),
+            new Divider(
+              height: 4,
+              color: Colors.blue[900],
+            ),
           ],
         ),
       ),
     );
   }
-
 }

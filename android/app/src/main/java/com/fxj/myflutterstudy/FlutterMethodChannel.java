@@ -35,4 +35,22 @@ public class FlutterMethodChannel implements MethodChannel.MethodCallHandler{
             result.notImplemented();
         }
     }
+    public void getFluuterInfo(){
+        methodChannel.invokeMethod("getFlutterInfo", null, new MethodChannel.Result() {
+            @Override
+            public void success(Object o) {
+                Log.d(TAG,"**getFluuterInfo success**"+o.toString());
+            }
+
+            @Override
+            public void error(String s,String s1, Object o) {
+                Log.d(TAG,"**getFluuterInfo error**");
+            }
+
+            @Override
+            public void notImplemented() {
+                Log.d(TAG,"**getFluuterInfo notImplemented**");
+            }
+        });
+    }
 }
