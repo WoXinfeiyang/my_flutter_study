@@ -9,12 +9,18 @@ import io.flutter.plugins.GeneratedPluginRegistrant;
 
 public class MainActivity extends FlutterActivity {
   private static final String TAG=MainActivity.class.getSimpleName();
+
   FlutterMethodChannel mFlutterMethodChannel;
+
+  FlutterEventChannel mFlutterEventChannel;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     GeneratedPluginRegistrant.registerWith(this);
     mFlutterMethodChannel=FlutterMethodChannel.create(this,getFlutterView());
+
+    mFlutterEventChannel=FlutterEventChannel.create(this,getFlutterView());
   }
 
   @Override
@@ -26,7 +32,7 @@ public class MainActivity extends FlutterActivity {
         break;
       case KeyEvent.KEYCODE_VOLUME_UP:
         Log.d(TAG,"音量Up键被点击!");
-
+        mFlutterEventChannel.sendEvent(Utils.getInstance(this).getMobileBrand()+",timestamp="+System.currentTimeMillis());
         break;
     }
     return super.onKeyDown(keyCode, event);

@@ -2,6 +2,8 @@ package com.fxj.myflutterstudy;
 
 import android.content.Context;
 import android.media.AudioManager;
+import android.os.Build;
+import android.provider.Settings;
 
 public class Utils {
     private static Utils sInstance;
@@ -22,5 +24,10 @@ public class Utils {
 
     public int getStreamVolume(){
         return audioManager.getStreamVolume(AudioManager.STREAM_RING);
+    }
+
+    /**获取手机型号*/
+    public String getMobileBrand(){
+        return Build.BRAND;
     }
 }
