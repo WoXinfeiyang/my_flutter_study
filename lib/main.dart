@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import './platform_channel/platform_channel_home_page.dart';
 import './router_demo/router_demo_home_page.dart';
 import './router_demo/router_demo_second_page.dart';
 import './ui_widget_demo/ui_home_page.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  debugPaintSizeEnabled = false;
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

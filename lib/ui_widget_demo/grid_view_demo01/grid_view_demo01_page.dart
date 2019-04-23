@@ -26,26 +26,33 @@ class GridViewDemo01Page extends StatelessWidget {
   Widget _getGridViewItem(BuildContext context, BeautyStar beautyStar) {
     return Card(
       elevation: 4.0,
-      child: new Column(
-        children: <Widget>[
-          Image.asset(
-            beautyStar.image,
-            fit: BoxFit.cover,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              new Text(
+      child: new Container(
+        alignment: Alignment.center,
+        width: 1920,
+        height: 1094,
+        child: new Stack(
+          children: <Widget>[
+            new Align(
+              alignment: Alignment.topCenter,
+              child: Image.asset(
+                beautyStar.image,
+                fit: BoxFit.cover,
+                width: 1920,
+                height: 1080,
+              ),
+            ),
+            new Align(
+              alignment: Alignment.bottomCenter,
+              child: new Text(
                 beautyStar.des,
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
                 ),
-              )
-            ],
-          ),
-        ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
