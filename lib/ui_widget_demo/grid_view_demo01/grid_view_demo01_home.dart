@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class GrideViewDemo01Page extends StatefulWidget {
+class GrideViewDemo01HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return new GrideViewDemo01State();
+    return new GrideViewDemo01HomeState();
   }
 }
 
-class GrideViewDemo01State extends State<GrideViewDemo01Page> {
+class GrideViewDemo01HomeState extends State<GrideViewDemo01HomePage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

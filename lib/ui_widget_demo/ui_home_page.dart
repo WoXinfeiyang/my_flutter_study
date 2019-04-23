@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_flutter_study/ui_widget_demo/grid_view_demo01.dart';
+import 'package:my_flutter_study/ui_widget_demo/grid_view_demo01/grid_view_demo01_home.dart';
 
 class UiWidgetDemoHomePage extends StatelessWidget {
   // This widget is the root of your application.
@@ -12,7 +12,7 @@ class UiWidgetDemoHomePage extends StatelessWidget {
       ),
       home: UiHomePage(title: 'Flutter常见UI控件'),
       routes: <String, WidgetBuilder>{
-        'router/gridview_demo01': (context) => new GrideViewDemo01Page(),
+        'router/gridview_demo01': (context) => new GrideViewDemo01HomePage(),
       },
     );
   }
