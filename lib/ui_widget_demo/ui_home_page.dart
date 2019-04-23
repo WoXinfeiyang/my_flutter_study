@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_study/ui_widget_demo/grid_view_demo01.dart';
 
-import './platform_channel/platform_channel_home_page.dart';
-import './router_demo/router_demo_home_page.dart';
-import './router_demo/router_demo_second_page.dart';
-import './ui_widget_demo/ui_home_page.dart';
-
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
+class UiWidgetDemoHomePage extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -16,39 +10,30 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyFlutterStudyHomePage(title: 'My Flutter Study'),
+      home: UiHomePage(title: 'Flutter常见UI控件'),
       routes: <String, WidgetBuilder>{
-        'router/home': (context) => new RouterDemoHomePage(),
-        'router/second': (context) => new RouterDemoSecondPage(),
-        'router/platform_channel_home_page': (context) =>
-            new PlatformChannelHomePage(),
-        'router/ui_widget_demo': (context) => new UiWidgetDemoHomePage(),
+        'router/gridview_demo01': (context) => new GrideViewDemo01Page(),
       },
     );
   }
 }
 
-class MyFlutterStudyHomePage extends StatefulWidget {
-  MyFlutterStudyHomePage({Key key, this.title}) : super(key: key);
+class UiHomePage extends StatefulWidget {
+  UiHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyFlutterStudyHomePageState createState() => _MyFlutterStudyHomePageState();
+  _UiHomePageState createState() => _UiHomePageState();
 }
 
-class _MyFlutterStudyHomePageState extends State<MyFlutterStudyHomePage> {
+class _UiHomePageState extends State<UiHomePage> {
   List<Map<String, String>> list = new List<Map<String, String>>();
 
   @override
   void initState() {
     super.initState();
-    list.add({'title': '路由导航', 'router': 'router/home'});
-    list.add({
-      'title': 'Flutter与Android原生代码通信',
-      'router': 'router/platform_channel_home_page'
-    });
-    list.add({'title': 'Flutter 常见UI控件', 'router': 'router/ui_widget_demo'});
+    list.add({'title': 'GridViewDemo01', 'router': 'router/gridview_demo01'});
   }
 
   @override
