@@ -4,13 +4,17 @@ import 'package:my_flutter_study/model/beauty_star.dart';
 class GridViewDemo01Page extends StatelessWidget {
   List<BeautyStar> allBeautyStars = BeautyStar.getAllBeautyStars();
 
+  int crossAxisCount;
+
+  GridViewDemo01Page(this.crossAxisCount);
+
   @override
   Widget build(BuildContext context) {
     print("allBeautyStars.length=" + allBeautyStars.length.toString());
 
     // TODO: implement build
     return new GridView.count(
-      crossAxisCount: 2,
+      crossAxisCount: this.crossAxisCount,
       padding: new EdgeInsets.all(10.0),
       children: allBeautyStars.map((BeautyStar beautyStar) {
         print("beautyStar:image=" +

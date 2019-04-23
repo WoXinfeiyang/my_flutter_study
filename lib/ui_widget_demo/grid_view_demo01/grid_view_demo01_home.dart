@@ -16,7 +16,15 @@ class GrideViewDemo01HomeState extends State<GrideViewDemo01HomePage> {
       appBar: new AppBar(
         title: new Text("GridViewDemo01"),
       ),
-      body: new GridViewDemo01Page(),
+      body: _getHomeBody(context),
     );
+  }
+
+  Widget _getHomeBody(BuildContext context) {
+    if (MediaQuery.of(context).orientation == Orientation.portrait) {
+      return GridViewDemo01Page(2);
+    } else {
+      return GridViewDemo01Page(3);
+    }
   }
 }
