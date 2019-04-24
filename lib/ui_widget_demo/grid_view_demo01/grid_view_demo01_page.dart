@@ -64,31 +64,72 @@ class GridViewDemo01Page extends StatelessWidget {
   Widget _getGridViewItemV02(BuildContext context, BeautyStar beautyStar) {
     return new Container(
         alignment: Alignment.center,
-        width: 1920,
-        height: 1120,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          mainAxisSize: MainAxisSize.min,
+        width: 192,
+        height: 108,
+        child: Wrap(
+          direction: Axis.vertical,
+          alignment: WrapAlignment.start,
+          runAlignment: WrapAlignment.start,
+          crossAxisAlignment: WrapCrossAlignment.start,
           verticalDirection: VerticalDirection.up,
           children: <Widget>[
             new Image.asset(
               beautyStar.image,
               fit: BoxFit.cover,
-              width: 1920,
-              height: 1080,
+              width: 192,
+              height: 108,
             ),
-            new Divider(
-              height: 10,
-              color: Colors.red,
-            ),
-            new Text(
-              beautyStar.des,
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+//            new Divider(
+//              height: 10,
+//              color: Colors.red,
+//            ),
+//            new Text(
+//              beautyStar.des,
+//              style: TextStyle(
+//                fontSize: 14,
+//                fontWeight: FontWeight.bold,
+//              ),
+//            ),
           ],
         ));
+  }
+
+  Widget _getGridViewItemV03(BuildContext context, BeautyStar beautyStar) {
+    return Card(
+      elevation: 4.0,
+      child: new Container(
+        alignment: Alignment.center,
+        width: 192,
+        height: 122,
+        child: new Stack(
+          alignment: Alignment.center,
+          children: <Widget>[
+            new Positioned(
+              left: 0,
+              top: 0,
+              width: 192,
+              height: 108,
+              child: Image.asset(
+                beautyStar.image,
+                fit: BoxFit.cover,
+                width: 192,
+                height: 108,
+              ),
+            ),
+            new Positioned(
+              top: 108,
+              height: 14,
+              child: new Text(
+                beautyStar.des,
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
