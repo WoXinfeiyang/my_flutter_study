@@ -22,12 +22,12 @@ class GridViewDemo01Page extends StatelessWidget {
             ",beautyStar.des=" +
             beautyStar.des +
             "\n");
-        return _getGridViewItem(context, beautyStar);
+        return _getGridViewItemV01(context, beautyStar);
       }).toList(),
     );
   }
 
-  Widget _getGridViewItem(BuildContext context, BeautyStar beautyStar) {
+  Widget _getGridViewItemV01(BuildContext context, BeautyStar beautyStar) {
     return Card(
       elevation: 4.0,
       child: new Container(
@@ -59,5 +59,36 @@ class GridViewDemo01Page extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _getGridViewItemV02(BuildContext context, BeautyStar beautyStar) {
+    return new Container(
+        alignment: Alignment.center,
+        width: 1920,
+        height: 1120,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.min,
+          verticalDirection: VerticalDirection.up,
+          children: <Widget>[
+            new Image.asset(
+              beautyStar.image,
+              fit: BoxFit.cover,
+              width: 1920,
+              height: 1080,
+            ),
+            new Divider(
+              height: 10,
+              color: Colors.red,
+            ),
+            new Text(
+              beautyStar.des,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ));
   }
 }
