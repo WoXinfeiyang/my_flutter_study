@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_study/ui_widget_demo/animation_demo/logo_animation_widget.dart';
 import 'package:my_flutter_study/ui_widget_demo/grid_view_demo01/grid_view_demo01_home.dart';
 
 class UiWidgetDemoHomePage extends StatelessWidget {
@@ -13,6 +14,7 @@ class UiWidgetDemoHomePage extends StatelessWidget {
       home: UiHomePage(title: 'Flutter常见UI控件'),
       routes: <String, WidgetBuilder>{
         'router/gridview_demo01': (context) => new GrideViewDemo01HomePage(),
+        'router/logo_animation_widget': (context) => new LogoAnimationWidget(),
       },
     );
   }
@@ -34,6 +36,10 @@ class _UiHomePageState extends State<UiHomePage> {
   void initState() {
     super.initState();
     list.add({'title': 'GridViewDemo01', 'router': 'router/gridview_demo01'});
+    list.add({
+      'title': 'LogoAnimationWidget',
+      'router': 'router/logo_animation_widget'
+    });
   }
 
   @override
