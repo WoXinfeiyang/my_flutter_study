@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_study/ui_widget_demo/animation_demo/logo_animation_widget.dart';
+import 'package:my_flutter_study/ui_widget_demo/expanded_demo01_page.dart';
 import 'package:my_flutter_study/ui_widget_demo/grid_view_demo01/grid_view_demo01_home.dart';
 
 class UiWidgetDemoHomePage extends StatelessWidget {
@@ -15,6 +16,7 @@ class UiWidgetDemoHomePage extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         'router/gridview_demo01': (context) => new GrideViewDemo01HomePage(),
         'router/logo_animation_widget': (context) => new LogoAnimationWidget(),
+        'router/expanded_demo01': (context) => new ExpandedDemo01Page(),
       },
     );
   }
@@ -40,6 +42,7 @@ class _UiHomePageState extends State<UiHomePage> {
       'title': 'LogoAnimationWidget',
       'router': 'router/logo_animation_widget'
     });
+    list.add({'title': 'Expanded Demo01', 'router': 'router/expanded_demo01'});
   }
 
   @override
