@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CircleProgressBar extends StatefulWidget {
   double outRadius;
-  double strokeWidth;
+  double shadowWidth;
   Color shadowColor;
   Color progressColor;
 
@@ -11,24 +11,24 @@ class CircleProgressBar extends StatefulWidget {
   CircleProgressBar(
       {@required this.progress,
       @required this.outRadius,
-      @required this.strokeWidth,
+      @required this.shadowWidth,
       this.shadowColor = Colors.grey,
       this.progressColor = Colors.red});
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return null;
+    return _CircleProgressBarState();
   }
 }
 
 class _CircleProgressBarState extends State<CircleProgressBar>
     with SingleTickerProviderStateMixin {
+  double _width;
   Size _size;
   @override
   void initState() {
-    double width = widget.outRadius * 2;
-    _size = new Size(width, width);
+    _width = widget.outRadius * 2;
+    _size = new Size(_width, _width);
     super.initState();
   }
 
@@ -37,10 +37,19 @@ class _CircleProgressBarState extends State<CircleProgressBar>
     // TODO: implement build
     return new CustomPaint(
       size: _size,
-      child: new Text(
-        "${widget.progress}%",
-        style: TextStyle(color: Colors.black),
+      child: new Center(
+        child: new Text(
+          "${widget.progress}%",
+          style: TextStyle(color: Colors.black),
+//          textAlign: TextAlign.center,
+        ),
       ),
+      painter: _CircleProgressBarPainter(
+          progress: widget.progress,
+          outRadius: widget.outRadius,
+          shadowWidth: widget.shadowWidth,
+          shadowColor: widget.shadowColor,
+          progressColor: widget.progressColor),
     );
   }
 }
@@ -48,27 +57,39 @@ class _CircleProgressBarState extends State<CircleProgressBar>
 class _CircleProgressBarPainter extends CustomPainter {
   double progress;
   double outRadius;
-  double strokeWidth;
-  Color strokeColor;
+  double shadowWidth;
+  Color shadowColor;
   Color progressColor;
 
   Paint _progressPaint;
   Paint _backgroundPaint;
-
+  Offset _center;
   _CircleProgressBarPainter(
       {@required this.progress,
       @required this.outRadius,
-      @required this.strokeWidth,
-      this.strokeColor,
-      this.progressColor}) {}
+      @required this.shadowWidth,
+      this.shadowColor = Colors.grey,
+      this.progressColor = Colors.red}) {
+    this._progressPaint = new Paint()
+      ..color = this.progressColor
+      ..strokeCap = StrokeCap.round /*画笔笔触类型*/
+      ..style = PaintingStyle.fill /*绘画风格，默认为填充*/
+      ..strokeWidth = shadowWidth; //画笔的宽度
+
+    this._backgroundPaint = new Paint()
+      ..color = this.shadowColor
+      ..strokeCap = StrokeCap.round /*画笔笔触类型*/
+      ..style = PaintingStyle.stroke /*绘画风格，默认为填充*/
+      ..strokeWidth = shadowWidth; //画笔的宽度
+    _center = new Offset(this.outRadius, this.outRadius);
+  }
   @override
   void paint(Canvas canvas, Size size) {
-    // TODO: implement paint
+    canvas.drawCircle(_center, this.outRadius, this._backgroundPaint);
   }
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
-    return null;
+    return true;
   }
 }
