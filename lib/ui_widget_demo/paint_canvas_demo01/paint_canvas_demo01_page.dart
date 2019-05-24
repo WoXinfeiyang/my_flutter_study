@@ -13,7 +13,7 @@ class PaintAndCanvasDemo01Page extends StatelessWidget {
         children: <Widget>[
 //          new CustomViewPage(),
           new CircleProgressBar(
-            progress: 50,
+            progress: 25,
             outRadius: 120,
             shadowWidth: 20,
           )
