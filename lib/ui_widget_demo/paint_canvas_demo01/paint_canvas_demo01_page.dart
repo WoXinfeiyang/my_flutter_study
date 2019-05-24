@@ -8,6 +8,7 @@ class PaintAndCanvasDemo01Page extends StatelessWidget {
       color: Colors.white,
       width: 1000,
       height: 1000,
+      padding: EdgeInsets.only(left: 20,top: 40,),
       child: new Column(
         children: <Widget>[
 //          new CustomViewPage(),
