@@ -1,9 +1,3 @@
-/*
- * author: Created by 李卓原 on 2018/10/18.
- * email: zhuoyuan93@gmail.com
- *  自定义view
- */
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
