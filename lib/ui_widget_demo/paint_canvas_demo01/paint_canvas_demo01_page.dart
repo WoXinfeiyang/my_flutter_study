@@ -30,9 +30,9 @@ class _PaintAndCanvasDemo01PageState extends State<PaintAndCanvasDemo01Page> wit
     this._controller.addStatusListener((AnimationStatus status){
       print("**AnimationController.StatusListener**${status}");
       if(status==AnimationStatus.dismissed){
-//        this._controller.forward(from: 0);
+        this._controller.forward(from: 0);
       }else if(status==AnimationStatus.completed){
-//        this._controller.reverse(from: 100);
+        this._controller.reverse(from: 100);
       }
     });
     this._controller.forward(from:0.0);
