@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_study/ui_widget_demo/align_test_deom01_page.dart';
 import 'package:my_flutter_study/ui_widget_demo/animation_demo/logo_animation_widget.dart';
 import 'package:my_flutter_study/ui_widget_demo/expanded_demo01_page.dart';
 import 'package:my_flutter_study/ui_widget_demo/grid_view_demo01/grid_view_demo01_home.dart';
@@ -19,7 +20,8 @@ class UiWidgetDemoHomePage extends StatelessWidget {
         'router/logo_animation_widget': (context) => new LogoAnimationWidget(),
         'router/expanded_demo01': (context) => new ExpandedDemo01Page(),
         'router/paint_canvas_demo01': (context) =>
-            new PaintAndCanvasDemo01Page()
+            new PaintAndCanvasDemo01Page(),
+        'router/align_test_demo01': (context) => new AlignTestDemo01Page(),
       },
     );
   }
@@ -50,6 +52,8 @@ class _UiHomePageState extends State<UiHomePage> {
       'title': 'Paint&CanvasDemo01',
       'router': 'router/paint_canvas_demo01'
     });
+    list.add(
+        {'title': 'AlignTestDemo01', 'router': 'router/align_test_demo01'});
   }
 
   @override
