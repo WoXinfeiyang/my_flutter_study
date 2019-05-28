@@ -52,9 +52,8 @@ class _PaintAndCanvasDemo01PageState extends State<PaintAndCanvasDemo01Page>
       color: Colors.white,
       width: 1000,
       height: 1000,
-      padding: EdgeInsets.only(
-        left: 20,
-        top: 40,
+      padding: EdgeInsets.all(
+        20,
       ),
       child: new Column(
         children: <Widget>[
