@@ -27,9 +27,17 @@ class _StaggerDemo01PageState extends State<StaggerDemo01Page>
     return GestureDetector(
       child: StaggerAnimaiton(this._animationController),
       onTap: () {
-        this._animationController.forward();
+        _playAnimation();
       },
     );
+  }
+
+  Future<Null> _playAnimation() async {
+    try {
+      /*await必须在async内部使用*/
+      await this._animationController.forward().orCancel;
+      await this._animationController.reverse().orCancel;
+    } on TickerCanceled {}
   }
 }
 
