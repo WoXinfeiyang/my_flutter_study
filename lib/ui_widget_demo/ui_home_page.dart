@@ -4,6 +4,7 @@ import 'package:my_flutter_study/ui_widget_demo/animation_demo/logo_animation_wi
 import 'package:my_flutter_study/ui_widget_demo/expanded_demo01_page.dart';
 import 'package:my_flutter_study/ui_widget_demo/grid_view_demo01/grid_view_demo01_home.dart';
 import 'package:my_flutter_study/ui_widget_demo/paint_canvas_demo01/paint_canvas_demo01_page.dart';
+import 'package:my_flutter_study/ui_widget_demo/stagger_demo01_page.dart';
 
 class UiWidgetDemoHomePage extends StatelessWidget {
   // This widget is the root of your application.
@@ -22,6 +23,7 @@ class UiWidgetDemoHomePage extends StatelessWidget {
         'router/paint_canvas_demo01': (context) =>
             new PaintAndCanvasDemo01Page(),
         'router/align_test_demo01': (context) => new AlignTestDemo01Page(),
+        "router/stagger_demo01_page": (context) => new StaggerDemo01Page(),
       },
     );
   }
@@ -54,6 +56,8 @@ class _UiHomePageState extends State<UiHomePage> {
     });
     list.add(
         {'title': 'AlignTestDemo01', 'router': 'router/align_test_demo01'});
+    list.add(
+        {'title': 'StaggerDemo01', 'router': "router/stagger_demo01_page"});
   }
 
   @override
